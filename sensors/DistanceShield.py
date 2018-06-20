@@ -43,7 +43,7 @@ class DistanceShield:
             for x in range(self.NUMBER_OF_TOF_SENSORS):
                 distance = self.sensors[x].get_distance()
                 distances.append(distance)
-            print ", ".join([y for y in distances])
+            print(", ".join([y for y in distances]))
             distances = list()
 
     def __off_all(self):
