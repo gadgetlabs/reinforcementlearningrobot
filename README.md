@@ -1,6 +1,6 @@
-Reinforcement Learning Robot Experiments
+# Reinforcement Learning Robot Experiments
 
-##Bill of Materials
+## Bill of Materials
 
 * 4 x Time-of-Flight VL53L0X Distance Sensor Breakout GY-VL53L0XV2V Module for Arduino
 * 1 x Arduino 9 Axis IMU L3GD20 LSM303D Module 9DOF Compass Acceleration Gyroscope
