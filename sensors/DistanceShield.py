@@ -46,7 +46,6 @@ class DistanceShield:
             print ", ".join([y for y in distances])
             distances = list()
 
-
     def __off_all(self):
         for x in range(self.NUMBER_OF_TOF_SENSORS):
             explorerhat.output[x].off()

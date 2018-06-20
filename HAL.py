@@ -12,11 +12,10 @@ class HAL:
         self.bus = smbus.SMBus(1)
 
 
-
     # array of 4 VL53L0X ToF sensors - array returned left to right
     # https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout/arduino-code
     def getDistance(self):
-        pass
+        tof.start_ranging(self, self.bus)
 
     def initDistance(self):
 
