@@ -24,7 +24,9 @@ class DistanceShield:
         self.sensors = list()
         for x in range(self.NUMBER_OF_TOF_SENSORS):
 
+            print("1")
             tof = VL53L0X.VL53L0X(address=self.NEW_I2C_ADDRESS_START + x)
+            print("2")
             self.sensors.append(tof)
 
             # Bring up sensor x (not same as x - 1!)
@@ -36,7 +38,9 @@ class DistanceShield:
     def start_ranging(self, bus):
 
         for x in range(self.NUMBER_OF_TOF_SENSORS):
+            print("3")
             self.sensors[x].start_ranging(VL53L0X.VL53L0X_BETTER_ACCURACY_MODE)
+            print("4")
 
         distances = list()
         for count in range(1, 101):
