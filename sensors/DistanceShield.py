@@ -1,6 +1,7 @@
 import explorerhat
 import time
 import VL53L0X
+import smbus
 
 class DistanceShield:
 
@@ -17,7 +18,24 @@ class DistanceShield:
         time.sleep(3)
         self.__on_all()
 
+    # check is an i2c address exists
+    def __exists(self, bus, address):
+        try:
+            bus.read_byte(address)
+            return True
+        except:
+            return False
+
     def change_addresses(self, bus):
+
+#        # first look for 0x29 - does anything exist?
+#        if self.__exists(bus, 0x29):
+#            self.__change_addresses(bus)
+#        # Sensors might of already had their addresses changed - check what needs changing
+#        else:
+#            # do some exploration
+
+    def __change_addresses(self, bus):
 
         self.__off_all()
 
