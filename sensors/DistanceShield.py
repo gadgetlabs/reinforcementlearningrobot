@@ -2,6 +2,12 @@ import explorerhat
 import time
 import VL53L0X
 import smbus
+from sensors import Sensor
+from messages import Message
+from messages.object import Distance
+from messages.subject import Robot
+from messages.predicate import IsWithin
+
 
 class DistanceShield:
 
