@@ -1,16 +1,8 @@
 from sensors import Sensor
-
-
-class Heading:
-
-    value = 0
-
-    def get(self):
-        return self.value
-
-    def set(self, value):
-        self.value = value
-
+from messages import Message
+from messages.object import Bearing
+from messages.subject import Robot
+from messages.predicate import HasHeading
 
 class Compass(Sensor):
 
@@ -22,16 +14,18 @@ class Compass(Sensor):
         raise NotImplemented
         return val
 
-    # The pu
-    async def connect(self):
 
-        val = Heading()
+    async def run(self):
+
+        msg = Message(Robot(), HasHeading(), Bearing())
 
         while True:
 
             raise NotImplemented
             # get the data
             current_heading = self.get_compass_reading()
-            val.set(current_heading)
-            await self.queue.put(val)
+
+
+
+            await self.queue.put(msg)
 

@@ -1,6 +1,6 @@
 from behaviours import Behaviour
 from sensors.Compass import Heading
-from actuators.Motors import MotorPositions
+from actuators.DifferentialDrive import MotorPositions
 
 
 class Simple(Behaviour):

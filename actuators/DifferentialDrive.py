@@ -38,7 +38,7 @@ class MotorPositions:
         self.delta = val
 
 
-class Motors(Actuator):
+class DifferentialDrive(Actuator):
 
     def __init__(self, queue):
         self.queue = queue

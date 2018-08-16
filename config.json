@@ -1,0 +1,10 @@
+{
+  "Behaviour" : "Simple",
+  "Actuators" : [
+                  {"name": "DifferentialDrive"}
+                ],
+  "Sensors" : [
+                {"name": "Compass"},
+                {"name" : "DistanceShield", "position" : "forward"}
+              ]
+}
