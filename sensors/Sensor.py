@@ -1,8 +1,18 @@
-import asyncio
+from abc import ABCMeta, abstractmethod
 
-class Sensor(asyncio.Task):
+
+class Sensor:
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
     def __init__(self):
-        raise NotImplementedError
+        pass
 
-    def connect(self):
-        raise NotImplementedError
+    @abstractmethod
+    async def run(self):
+        pass
+
+    @abstractmethod
+    def initialise(self):
+        pass
+

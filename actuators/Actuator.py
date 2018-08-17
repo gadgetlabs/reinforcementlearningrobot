@@ -1,5 +1,16 @@
-import asyncio
+from abc import ABCMeta, abstractmethod
 
-class Actuator(asyncio.Task):
+class Actuator:
+    __metaclass__ = ABCMeta
+
+    @abstractmethod
     def __init__(self):
-        raise NotImplementedError
+        pass
+
+    @abstractmethod
+    async def run(self):
+        pass
+
+    @abstractmethod
+    def initialise(self):
+        pass

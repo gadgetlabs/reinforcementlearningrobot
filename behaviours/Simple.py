@@ -7,7 +7,7 @@ class Simple(Behaviour):
 
     LIMIT = 30 # JUST SOME BULLSHIT number to test
 
-    def __int__(self, sensors_queue, actuators_queue):
+    def __init__(self, sensors_queue, actuators_queue):
         self.sensors = sensors_queue
         self.actuators = actuators_queue
 

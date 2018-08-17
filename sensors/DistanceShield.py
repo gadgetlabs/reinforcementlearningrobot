@@ -2,19 +2,65 @@ import explorerhat
 import time
 import VL53L0X
 import smbus
-from sensors import Sensor
-from messages import Message
+from sensors.Sensor import Sensor
+from messages.Message import Message
 from messages.object import Distance
 from messages.subject import Robot
 from messages.predicate import IsWithin
 
 
-class DistanceShield:
+class DistanceShield(Sensor):
 
-    def __init__(self):
+    async def run(self):
+        msg = Message(Robot(), IsWithin(), Distance())
+
+        while True:
+
+            raise NotImplemented
+            # get the data
+            current_distance = self.__get_distance_reading()
+
+
+
+            await self.queue.put(msg)
+
+    def initialise(self):
+        pass
+
+    def __get_distance_reading(self):
+        pass
+
+    #
+    # def __init__(self):
+    #
+    #     self.NUMBER_OF_TOF_SENSORS = 4
+    #     self.ds_addresses = []
+    #     self.bus = smbus.SMBus(1)
+    #
+    #
+    # # array of 4 VL53L0X ToF sensors - array returned left to right
+    # # https://learn.adafruit.com/adafruit-vl53l0x-micro-lidar-distance-sensor-breakout/arduino-code
+    # def getDistance(self):
+    #     ds.start_ranging(self, self.bus)
+    #
+    # def initDistance(self):
+    #
+    #     ds.number_sensors(self.NUMBER_OF_TOF_SENSORS)
+    #     ds.reset_all()
+    #     self.tof_addresses = ds.change_addresses(self.bus)
+
+
+
+
+    def __init__(self, queue):
         self.NUMBER_OF_TOF_SENSORS = 0
         self.BASE_I2C_ADDRESS = 0x29
         self.NEW_I2C_ADDRESS_START = 0x30
+        self.queue = queue
+        self.initialise()
+
+
+
 
     def number_sensors(self, number_sensors):
         self.NUMBER_OF_TOF_SENSORS = number_sensors
@@ -33,7 +79,7 @@ class DistanceShield:
             return False
 
     def change_addresses(self, bus):
-
+        pass
 #        # first look for 0x29 - does anything exist?
 #        if self.__exists(bus, 0x29):
 #            self.__change_addresses(bus)
